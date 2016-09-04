@@ -3,15 +3,34 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  total = 0
+	arr.each do |x|
+		total += x
+	end
+	return total
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  largest = 0
+	largest2 = 0
+	
+	if arr.length >= 2
+		largest = arr.sort[-1]
+		largest2 = arr.sort[-2]
+	elsif arr.length == 1
+		largest = arr[0]
+	end
+	
+	return largest + largest2
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  return false if arr.length == 1 || arr.length == 0
+
+  arr.permutation(2).to_a.each do |x|
+  	return true if (x[0] + x[1]) == n
+  end
+  return false
 end
 
 # Part 2
